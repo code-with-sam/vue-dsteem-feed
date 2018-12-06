@@ -27,3 +27,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+* >>> img {
+  max-width: 100%;
+}
+</style>
