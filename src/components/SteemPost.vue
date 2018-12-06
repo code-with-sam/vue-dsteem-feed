@@ -1,12 +1,13 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <main>{{ content }}</main>
+    <main v-html="content"></main>
   </div>
 </template>
 
 <script>
 const dsteem = require('dsteem')
+import marked from 'marked'
 
 export default {
   name: 'SteemPost',
@@ -21,7 +22,7 @@ export default {
     client.call('condenser_api', 'get_content', [this.$route.params.username, this.$route.params.permlink])
     .then(response => {
         this.title = response.title
-        this.content = response.body
+        this.content = marked(response.body, { sanitize: true })
     })
   }
 }
