@@ -2,7 +2,9 @@
     <div class="steemfeed">
         <h1>Steem Feed</h1>
         <main v-for="post in posts" :key="post.id">
-            <h2>{{post.title}}</h2>
+            <router-link :to="`${post.author}/${post.permlink}`">
+                <h2>{{post.title}}</h2>
+            </router-link>
          </main>
     </div>
 </template>
