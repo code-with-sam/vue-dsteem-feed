@@ -14,7 +14,11 @@ export default {
     }
   },
   created () {
-
+    const client = new dsteem.Client('https://api.steemit.com')
+    client.call('condenser_api', 'get_content', [this.$route.params.username, this.$route.params.permlink])
+    .then(response => {
+        console.log(response)
+    })
   }
 }
 </script>
